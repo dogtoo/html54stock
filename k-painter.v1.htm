@@ -4,15 +4,12 @@
     <meta http-equiv="content-type" content="text/html;charset=GBK" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>k line painter</title>
-    <script src="libs/loading.js" type="text/javascript" charset="GBK"></script>
+    
     <script src="libs/util.js" type="text/javascript" charset="GBK"></script>
     <script src="libs/absPainter.js" type="text/javascript" charset="GBK"></script>
-    <script src="libs/ajax.js" type="text/javascript" charset="GBK"></script>
-    <script src="libs/crossLines.js" type="text/javascript" charset="GBK"></script>
+    
     <script src="libs/axis-x.js" type="text/javascript" charset="GBK"></script>
-    <script src="libs/tip.js" type="text/javascript" charset="GBK"></script>
-    <script src="libs/linepainter.js" type="text/javascript" charset="GBK"></script>
-    <script src="libs/volumePainter.js" type="text/javascript" charset="GBK"></script>
+    
     <script src="libs/axis-y.js" type="text/javascript" charset="GBK"></script>
     <script src="libs/chartEventHelper.js?abc" type="text/javascript" charset="GBK"></script>
     <script type="text/javascript" src="libs/controller.js" charset="GBK"></script>
@@ -293,7 +290,13 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                         me.requestController = true;
                         me.implement.onOrentationChanged.call(me);
                     });
+                    
                 }
+                
+                addEvent(window, 'resize', function (ev) {
+                    me.requestController = true;
+                    me.implement.onOrentationChanged.call(me);
+                });
 
                 me.painting = false;
             },
@@ -667,8 +670,10 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
         };
         
         var painter;// = new Painter('canvasKL', kl, data);
-        var initialWidth = Math.min(screen.width,1024)-40;
-        function drawKL(ranges) {            
+        //var initialWidth = Math.min(screen.width,1024)-40;
+        
+        function drawKL(ranges) {         
+            var initialWidth = window.innerWidth - 40;
             var kOptions = {
                 backgroundColor:'#fff',
                 riseColor: 'red',
