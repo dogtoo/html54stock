@@ -1,13 +1,13 @@
 /*
-html5è¡Œæƒ…å›¾åº“
+html5ÐÐÇéÍ¼¿â
 author:yukaizhao
 blog:http://www.cnblogs.com/yukaizhao/
-å•†ä¸šæˆ–å…¬å¼€å‘å¸ƒè¯·è”ç³»ï¼šyukaizhao@gmail.com
+ÉÌÒµ»ò¹«¿ª·¢²¼ÇëÁªÏµ£ºyukaizhao@gmail.com
 */
-/*ä½¿ç”¨æ­¤æ–‡ä»¶éœ€è¦åŒæ—¶å¼•ç”¨util.js*/
+/*Ê¹ÓÃ´ËÎÄ¼þÐèÒªÍ¬Ê±ÒýÓÃutil.js*/
 /*
     options:{
-        position:{x:false,y:33}, //positionä¸­çš„å€¼æ˜¯ç›¸å¯¹äºŽcanvasçš„å·¦ä¸Šè§’çš„
+        position:{x:false,y:33}, //positionÖÐµÄÖµÊÇÏà¶ÔÓÚcanvasµÄ×óÉÏ½ÇµÄ
         size:{width:150,height:200},
         opacity:80,
         cssClass:'',
@@ -46,7 +46,7 @@ Tip.prototype = {
         else {
             if (otip) {
                 var currentX = parseInt(otip.style.left) - canvasPosition.x;
-                //æç¤ºæ¡†åœ¨é¼ æ ‡çš„å³è¾¹
+                //ÌáÊ¾¿òÔÚÊó±êµÄÓÒ±ß
                 if (currentX > x) {
                     if (offset + x + size.width > this._getRightLimit()) {
                         currentX = x - offset - size.width;
@@ -69,12 +69,12 @@ Tip.prototype = {
             }
         }
 
-        //yå€¼å›ºå®š
+        //yÖµ¹Ì¶¨
         if (position.y) tipY = position.y;
         else {
             if (otip) {
                 var currentY = parseInt(otip.style.top) - canvasPosition.y;
-                //æç¤ºæ¡†åœ¨é¼ æ ‡çš„å³è¾¹
+                //ÌáÊ¾¿òÔÚÊó±êµÄÓÒ±ß
                 if (currentY > y) {
                     if (offset + y + size.height > this._getBottomLimit()) {
                         currentY = y - offset - size.height;
@@ -103,7 +103,7 @@ Tip.prototype = {
             otip.id = this.getElementId();
             var opacity = this.opacity || 100;
             otip.style.cssText = '-moz-opacity:.' + opacity + '; filter:alpha(opacity='
-                + opacity + '); opacity:' + (opacity / 100) + ';line-height:18px;font-family:Arial,"å®‹ä½“";font-size:9pt;padding:4px;';
+                + opacity + '); opacity:' + (opacity / 100) + ';line-height:18px;font-family:Arial,"ËÎÌå";font-size:9pt;padding:4px;';
             otip.style.position = 'absolute';
             otip.style.zIndex = 4 + (this.canvas.style.zIndex || 1);
             otip.style.backgroundColor = 'white';

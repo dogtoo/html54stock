@@ -1,13 +1,13 @@
 /*
-html5琛屾儏鍥惧簱
+html5行情图库
 author:yukaizhao
 blog:http://www.cnblogs.com/yukaizhao/
-鍟嗕笟鎴栧叕寮�鍙戝竷璇疯仈绯伙細yukaizhao@gmail.com
+商业或公开发布请联系：yukaizhao@gmail.com
 */
 var Ajax = {};
 Ajax.request = function (method, url, callback, canvasId, showLoading) {
     showLoading = showLoading == undefined ? true : showLoading;
-    //杞藉叆鏁版嵁璋冪敤Painter鐢诲浘
+    //载入数据调用Painter画图
     var client = (window.ActiveXObject ? new ActiveXObject('Microsoft.XMLHTTP') : (window.XMLHttpRequest ? new XMLHttpRequest() : false));
     var canvas = document.getElementById(canvasId);
     if (canvas && showLoading) {

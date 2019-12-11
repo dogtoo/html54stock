@@ -1,13 +1,13 @@
 /*
-html5è¡Œæƒ…å›¾åº“
+html5ĞĞÇéÍ¼¿â
 author:yukaizhao
 blog:http://www.cnblogs.com/yukaizhao/
-å•†ä¸šæˆ–å…¬å¼€å‘å¸ƒè¯·è”ç³»ï¼šyukaizhao@gmail.com
+ÉÌÒµ»ò¹«¿ª·¢²¼ÇëÁªÏµ£ºyukaizhao@gmail.com
 */
  /*
-  html5 loading æ§ä»¶
-  ä½œè€…ï¼šç‰å¼€ åšå®¢ï¼šhttp://www.cnblogs.com/yukaizhao/
-  å‘å¸ƒæˆ–ä½¿ç”¨æ­¤æ§ä»¶ï¼Œè¯·ä¿ç•™ä½œè€…å£°æ˜
+  html5 loading ¿Ø¼ş
+  ×÷Õß£ºÓñ¿ª ²©¿Í£ºhttp://www.cnblogs.com/yukaizhao/
+  ·¢²¼»òÊ¹ÓÃ´Ë¿Ø¼ş£¬Çë±£Áô×÷ÕßÉùÃ÷
   */
   function loading(canvas,options){
       this.canvas = (typeof canvas == 'String' ? document.getElementById(canvas) : canvas);
@@ -45,7 +45,7 @@ blog:http://www.cnblogs.com/yukaizhao/
         ctx.stroke();
         for(var i=0;i<rotators.length;i++){        
           var rotatorAngle = rotators[i].currentAngle||rotators[i].angle;            
-          //åœ¨åœ†åœˆä¸Šé¢ç”»å°åœ†
+          //ÔÚÔ²È¦ÉÏÃæ»­Ğ¡Ô²
           var rotatorCenter = {x:center.x-(radius)*Math.cos(rotatorAngle) ,y:center.y-(radius)*Math.sin(rotatorAngle)};            
           var rotatorRadius = rotators[i].radius;
           ctx.beginPath();

@@ -1,8 +1,8 @@
 /*
-html5琛屾儏鍥惧簱
+html5行情图库
 author:yukaizhao
 blog:http://www.cnblogs.com/yukaizhao/
-鍟嗕笟鎴栧叕寮�鍙戝竷璇疯仈绯伙細yukaizhao@gmail.com
+商业或公开发布请联系：yukaizhao@gmail.com
 */
 (function () {
     function painter() { }
@@ -14,7 +14,7 @@ blog:http://www.cnblogs.com/yukaizhao/
 
         _createLayer: function (options, clear) {
             if (!options.id) {
-                alert('_createCanvas蹇呴』鎸囧畾id');
+                alert('_createCanvas必须指定id');
                 return;
             }
             if (!this.layers) this.layers = {};
@@ -72,7 +72,7 @@ blog:http://www.cnblogs.com/yukaizhao/
             ctx.stroke();
         },
         _drawText: function (ctx, txt, x, y, font, color, align) {
-            ctx.font = (font || '9pt 瀹嬩綋');
+            ctx.font = (font || '9pt 宋体');
             ctx.textAlign = (align || 'left');
             ctx.fillStyle = (color || "Black");
             ctx.fillText(txt, x, y);

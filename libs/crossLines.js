@@ -1,11 +1,11 @@
 /*
-html5è¡Œæƒ…å›¾åº“
+html5ĞĞÇéÍ¼¿â
 author:yukaizhao
 blog:http://www.cnblogs.com/yukaizhao/
-å•†ä¸šæˆ–å…¬å¼€å‘å¸ƒè¯·è”ç³»ï¼šyukaizhao@gmail.com
+ÉÌÒµ»ò¹«¿ª·¢²¼ÇëÁªÏµ£ºyukaizhao@gmail.com
 */
-/*åœ¨æŒ‡å®šåŒºåŸŸå†…æ˜¾ç¤ºäº¤å‰çº¿
-* æ­¤æ–‡ä»¶ä¾èµ–äº util.js
+/*ÔÚÖ¸¶¨ÇøÓòÄÚÏÔÊ¾½»²æÏß
+* ´ËÎÄ¼şÒÀÀµÓÚ util.js
 */
 /*
 var crossLinesOptions = {
@@ -83,7 +83,7 @@ crossLines.prototype = {
         var horizontalRange = this.horizontalRange || { x1: 0, x2: canvas.width };
         var canvasPosition = this.canvasPosition;
 
-        //åˆ¤æ–­æ˜¯å¦è¶…å‡ºæ°´å¹³å’Œå‚ç›´èŒƒå›´ï¼Œå¦‚æœè¶…å‡ºèŒƒå›´åˆ™è¦éšè—çº¿
+        //ÅĞ¶ÏÊÇ·ñ³¬³öË®Æ½ºÍ´¹Ö±·¶Î§£¬Èç¹û³¬³ö·¶Î§ÔòÒªÒş²ØÏß
         if (this.crossPoint.x < horizontalRange.x1
             || this.crossPoint.x > horizontalRange.x2
             || this.crossPoint.y < vertialRange.y1
@@ -94,7 +94,7 @@ crossLines.prototype = {
 
 
         var zIndex = (canvas.style.zIndex || 1) + 1;
-        //ç”»æ°´å¹³çº¿
+        //»­Ë®Æ½Ïß
         var exists = false;
         var hLine;
         if ($id(horizontalDivId)) {
@@ -122,7 +122,7 @@ crossLines.prototype = {
         }
 
 
-        //ç”»å‚ç›´çº¿
+        //»­´¹Ö±Ïß
         exists = false;
         var vLine;
         if ($id(verticalDivId)) {

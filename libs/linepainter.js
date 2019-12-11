@@ -1,8 +1,8 @@
 /*
-html5è¡Œæƒ…å›¾åº“
+html5ĞĞÇéÍ¼¿â
 author:yukaizhao
 blog:http://www.cnblogs.com/yukaizhao/
-å•†ä¸šæˆ–å…¬å¼€å‘å¸ƒè¯·è”ç³»ï¼šyukaizhao@gmail.com
+ÉÌÒµ»ò¹«¿ª·¢²¼ÇëÁªÏµ£ºyukaizhao@gmail.com
 */
 /*
 options = {
@@ -10,7 +10,7 @@ options = {
   maxDotsCount:241,
   getDataLength:function(){},
   getItemValue:function(item){return item.price;},
-  middleValue: 10.4, //é€šå¸¸æ˜¯æ˜¨æ”¶
+  middleValue: 10.4, //Í¨³£ÊÇ×òÊÕ
   color:'blue'
 }
 */
@@ -31,7 +31,7 @@ linePainter.prototype = {
         var options = this.options;
         var region = options.region;
         ctx.save();
-        //è½¬æ¢åæ ‡
+        //×ª»»×ø±ê
         ctx.translate(region.x, region.y + region.height / 2);
 
 

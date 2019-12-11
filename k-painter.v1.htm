@@ -4,21 +4,21 @@
     <meta http-equiv="content-type" content="text/html;charset=GBK" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>k line painter</title>
-
+    
     <script src="libs/util.js" type="text/javascript" charset="GBK"></script>
     <script src="libs/absPainter.js" type="text/javascript" charset="GBK"></script>
-
+    
     <script src="libs/axis-x.js" type="text/javascript" charset="GBK"></script>
-
+    
     <script src="libs/axis-y.js" type="text/javascript" charset="GBK"></script>
     <script src="libs/chartEventHelper.js?abc" type="text/javascript" charset="GBK"></script>
     <script type="text/javascript" src="libs/controller.js" charset="GBK"></script>
     <script type="text/javascript">
 /*
-html5è¡Œæƒ…å›¾åº“
+html5ĞĞÇéÍ¼¿â
 author:yukaizhao
 blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
-å‚ä¸é¡¹ç›®æˆ–æŠ€æœ¯äº¤æµï¼šyukaizhao@gmail.com
+²ÎÓëÏîÄ¿»ò¼¼Êõ½»Á÷£ºyukaizhao@gmail.com
 */
         function convertDate(val, withWeek) {
             var year = Math.ceil(val / 10000) - 1;
@@ -31,8 +31,8 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
             if (month < 10) month = '0' + month;
             if (day < 10) day = '0' + day;
             if (withWeek) {
-                var weekNames = ['æ—¥', 'ä¸€', 'äºŒ', 'ä¸‰', 'å››', 'äº”', 'å…­'];
-                return year + '-' + month + '-' + day + '(æ˜ŸæœŸ' + weekNames[d.getDay()] + ')';
+                var weekNames = ['ÈÕ', 'Ò»', '¶ş', 'Èı', 'ËÄ', 'Îå', 'Áù'];
+                return year + '-' + month + '-' + day + '(ĞÇÆÚ' + weekNames[d.getDay()] + ')';
             }
             else {
                 return year + '-' + month + '-' + day;
@@ -60,7 +60,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
             start:function(step){this.startTime = new Date();this.stepName = step;},
             stop:function(){
                 var timeSpan = new Date().getTime() - this.startTime.getTime();
-                setDebugMsg(this.stepName + 'è€—æ—¶' + timeSpan+'ms');
+                setDebugMsg(this.stepName + 'ºÄÊ±' + timeSpan+'ms');
             }
         };
 
@@ -100,14 +100,14 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 ctx.beginPath();
                 ctx.rect(0, 0, options.region.width, options.region.height);
                 ctx.stroke();
-                //ç”»æ°´å¹³åº•çº¹çº¿
+                //»­Ë®Æ½µ×ÎÆÏß
                 var spaceHeight = options.region.height / (options.horizontalLineCount + 1);
                 for (var i = 1; i <= options.horizontalLineCount; i++) {
                     var y = spaceHeight * i;
                     if (y * 10 % 10 == 0) y += .5;
                     this.drawHLine(options.splitLineColor, 0, y, options.region.width, 1, options.lineStyle);
                 }
-                //ç”»å‚ç›´åº•çº¹çº¿
+                //»­´¹Ö±µ×ÎÆÏß
                 var spaceWidth = options.region.width / (options.verticalLineCount + 1);
                 for (var i = 1; i <= options.verticalLineCount; i++) {
                     var w = spaceWidth * i;
@@ -149,105 +149,25 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                     if (index < 0) index = 0;
                     var ki = me.data.ks[index];
                     var tipHtml = '<div><b>' + convertDate(ki.quoteTime) + '</b></div>' +
-                    'æ˜¨æ”¶ä»·ï¼š<font color="' + getPriceColor(ki, ki.preClose) + '">' + toMoney(ki.preClose) + '</font><br/>' +
-                    'å¼€ç›˜ä»·ï¼š<font color="' + getPriceColor(ki, ki.open) + '">' + toMoney(ki.open) + '</font><br/>' +
-                    'æœ€é«˜ä»·ï¼š<font color="' + getPriceColor(ki, ki.high) + '">' + toMoney(ki.high) + '</font><br/>' +
-                    'æœ€ä½ä»·ï¼š<font color="' + getPriceColor(ki, ki.low) + '">' + toMoney(ki.low) + '</font><br/>' +
-                   'æ”¶ç›˜ä»·ï¼š<font color="' + getPriceColor(ki, ki.close) + '">' + toMoney(ki.close) + '</font><br/>' +
-                    'æˆäº¤é‡ï¼š' + bigNumberToText(ki.volume / 100) + 'æ‰‹<br/>' +
-                    'æˆäº¤é¢ï¼š' + bigNumberToText(ki.amount);
+                    '×òÊÕ¼Û£º<font color="' + getPriceColor(ki, ki.preClose) + '">' + toMoney(ki.preClose) + '</font><br/>' +
+                    '¿ªÅÌ¼Û£º<font color="' + getPriceColor(ki, ki.open) + '">' + toMoney(ki.open) + '</font><br/>' +
+                    '×î¸ß¼Û£º<font color="' + getPriceColor(ki, ki.high) + '">' + toMoney(ki.high) + '</font><br/>' +
+                    '×îµÍ¼Û£º<font color="' + getPriceColor(ki, ki.low) + '">' + toMoney(ki.low) + '</font><br/>' +
+                   'ÊÕÅÌ¼Û£º<font color="' + getPriceColor(ki, ki.close) + '">' + toMoney(ki.close) + '</font><br/>' +
+                    '³É½»Á¿£º' + bigNumberToText(ki.volume / 100) + 'ÊÖ<br/>' +
+                    '³É½»¶î£º' + bigNumberToText(ki.amount);
                     return tipHtml;
                 }
 
-                function getEventOffsetPosition(ev){
-                    var offset = isTouchDevice()
-                        ? setTouchEventOffsetPosition(ev, getPageCoord(me.canvas))
-                        : getOffset(ev);
-                    return offset;
-                }
-
-                var controllerEvents = {
-                    onStart:function(ev){
-                        ev = ev || event;
-                        var offset = getEventOffsetPosition(ev);
-                        me.controllerStartOffset = offset;
-                        me.controllerStartRange = me.dataRanges;
-                    },
-                    onEnd:function(ev){
-                        me.controllerStartOffset = null;
-                        me.controllerStartRange = null;
-                    },
-                    onMove:function(ev){
-                        if(!me.controllerStartOffset) return;
-                        ev = ev || event;
-                        var offset = getEventOffsetPosition(ev);
-                        var moveX = offset.offsetX - me.controllerStartOffset.offsetX;
-                        var currentRange = me.controllerStartRange;/*0-100*/
-                        var regionWidth = region.width;
-                        var moveValue =0- (moveX/regionWidth)*(currentRange.to-currentRange.start);
-                        var start = currentRange.start+moveValue;
-                        var to = currentRange.to + moveValue;
-                        if(start<0) {
-                            start = 0;
-                            to = start + (currentRange.to-currentRange.start);
-                        }
-                        else{
-                            if(to > 100){
-                                to = 100;
-                                start = to-(currentRange.to-currentRange.start);
-                            }
-                        }
-                        var changeToValue = {left:start,right:to};
-                        if(!me.painting) drawKL({ start: changeToValue.left, to: changeToValue.right });
-                    }
-                };
-
                 /*
-                å½“touchstartæ—¶çš„ä½ç½®åœ¨Kçº¿æŸ±é™„è¿‘æ—¶è¡¨ç¤ºè¦æ˜¾ç¤ºæŸ±çš„æè¿°ä¿¡æ¯æ¡†ï¼›å¦åˆ™åˆ™è¦æ§åˆ¶Kçº¿çš„èŒƒå›´
-                */
-                var fingerSize = {width:30,height:20};
-                function shouldDoControllerEvent(ev,evtType){
-                    if(evtType == undefined) return true;
-                    if(typeof me.shouldController == 'undefined') me.shouldController = true;
-                    if(evtType == 'touchstart'){
-                        var offset = getEventOffsetPosition(ev);
-                        var showTip=false;
-
-                        var x = offset.offsetX;
-                        x -= region.x;
-                        var index = Math.ceil(x / (me.klOptions.spaceWidth + me.klOptions.barWidth)) - 1;
-
-                        var indexRange = Math.ceil(fingerSize.width / (me.klOptions.spaceWidth + me.klOptions.barWidth))+1;
-
-                        var indexStart = Math.max(0,index - indexRange/2);
-                        var indexTo = Math.min(me.filteredData.length-1,index+indexRange/2);
-                        var yMin=999999;
-                        var yMax=-1;
-                        for(index = indexStart;index<=indexTo;index++){
-                            var dataAtIndex = me.filteredData[index];
-                            var yTop = region.y+ (me.high - dataAtIndex.high) * region.height / (me.high - me.low) - fingerSize.height;
-                            var yBottom = region.y+(me.high - dataAtIndex.low) * region.height / (me.high - me.low) + fingerSize.height;
-                            yMin = Math.min(yTop,yMin);
-                            yMax = Math.max(yBottom,yMax);
-                        }
-                        showTip = offset.offsetY >= yMin && offset.offsetY <= yMax;
-                        setDebugMsg('yMin='+yMin + ',yMax=' + yMax + ',offsetY='+offset.offsetY+',showTip=' + showTip);
-                        me.shouldController = !showTip;
-
-                    }
-                    //setDebugMsg('shouldController=' + me.shouldController);
-                    return me.shouldController;
-                }
-
-                /*
-                //æ·»åŠ é¼ æ ‡äº‹ä»¶
+                //Ìí¼ÓÊó±êÊÂ¼ş
                 addCrossLinesAndTipEvents(this.canvas, {
                 getCrossPoint: function (ev) { return { x: getX(ev.offsetX), y: ev.offsetY }; },
                 triggerEventRanges: { x: region.x, y: region.y + 1, width: region.width, height: volumeRegion.y + volumeRegion.height - region.y },
                 tipOptions: {
                 getTipHtml: function (ev) { return getTipHtml(ev.offsetX); },
                 size:{width:120,height:150},
-                position:{x:false,y:region.y+(region.height-150)/3}, //positionä¸­çš„å€¼æ˜¯ç›¸å¯¹äºcanvasçš„å·¦ä¸Šè§’çš„
+                position:{x:false,y:region.y+(region.height-150)/3}, //positionÖĞµÄÖµÊÇÏà¶ÔÓÚcanvasµÄ×óÉÏ½ÇµÄ
                 opacity:80,
                 cssClass:'',
                 offsetToPoint:30,
@@ -264,16 +184,14 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                         tipOptions: {
                             getTipHtml: function (ev) { return getTipHtml(ev.offsetX); },
                             size:{width:120,height:150},
-                            position:{x:false,y:region.y+(region.height-150)/3}, //positionä¸­çš„å€¼æ˜¯ç›¸å¯¹äºcanvasçš„å·¦ä¸Šè§’çš„
+                            position:{x:false,y:region.y+(region.height-150)/3}, //positionÖĞµÄÖµÊÇÏà¶ÔÓÚcanvasµÄ×óÉÏ½ÇµÄ
                             opacity:80,
                             cssClass:'',
                             offsetToPoint:30
                         },
                         crossLineOptions: {
                             color: 'black'
-                        },
-                        shouldDoControllerEvent:shouldDoControllerEvent,
-                        controllerEvents:controllerEvents
+                        }
                     });
                     me.crossLineAndTipMgrInstance.addCrossLinesAndTipEvents();
                 }
@@ -284,16 +202,14 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                             tipOptions: {
                                 getTipHtml: function (ev) { return getTipHtml(ev.offsetX); },
                                 size:{width:120,height:150},
-                                position:{x:false,y:region.y+(region.height-150)/3}, //positionä¸­çš„å€¼æ˜¯ç›¸å¯¹äºcanvasçš„å·¦ä¸Šè§’çš„
+                                position:{x:false,y:region.y+(region.height-150)/3}, //positionÖĞµÄÖµÊÇÏà¶ÔÓÚcanvasµÄ×óÉÏ½ÇµÄ
                                 opacity:80,
                                 cssClass:'',
                                 offsetToPoint:30
                             },
                             crossLineOptions: {
                                 color: 'black'
-                            },
-                            shouldDoControllerEvent:shouldDoControllerEvent,
-                            controllerEvents:controllerEvents
+                            }
                         });
                 }
 
@@ -335,7 +251,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                         },
                         touchFaultTolerance:20
                     });
-                    /* åœ¨åŸå›¾ä¸Šç”»æ§åˆ¶å™¨éƒ¨åˆ†
+                    /* ÔÚÔ­Í¼ÉÏ»­¿ØÖÆÆ÷²¿·Ö
                     var c = new controller(me.canvas.id, {
                     region: me.klOptions.priceLine.region,
                     bar: controllerOptions.bar || { width: 20, height: 35, borderColor: 'black', fillColor: 'snow' },
@@ -347,7 +263,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                     drawKL({ start: changeToValue.left, to: changeToValue.right });
                     me.controller.drawControllerPart();
                     var timeSpan = (new Date()).getTime() - d.getTime();
-                    setDebugMsg('time:' + d + 'ï¼Œè€—æ—¶ï¼š' + timeSpan+'ms'
+                    setDebugMsg('time:' + d + '£¬ºÄÊ±£º' + timeSpan+'ms'
                     +' value.left=' + changeToValue.left + ',value.right='+changeToValue.right
                     +' startIndex=' + me.startIndex
                     + ',toIndex=' + me.toIndex);
@@ -374,9 +290,9 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                         me.requestController = true;
                         me.implement.onOrentationChanged.call(me);
                     });
-
+                    
                 }
-
+                
                 addEvent(window, 'resize', function (ev) {
                     me.requestController = true;
                     me.implement.onOrentationChanged.call(me);
@@ -390,7 +306,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 var maxDataLength = this.data.ks.length;
                 var needCalcSpaceAndBarWidth = true;
                 if (this.dataRanges == null) {
-                    //è®¡ç®—dataRanges
+                    //¼ÆËãdataRanges
                     var dataCount = Math.ceil(region.width / (options.spaceWidth + options.barWidth))-1;
                     if (dataCount > maxDataLength) dataCount = maxDataLength;
 
@@ -409,11 +325,11 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 this.toIndex = toIndex;
                 var itemsCount = toIndex - startIndex + 1;
                 if (needCalcSpaceAndBarWidth) {
-                    //é‡æ–°è®¡ç®—spaceWidthå’ŒbarWidthå±æ€§
+                    //ÖØĞÂ¼ÆËãspaceWidthºÍbarWidthÊôĞÔ
                     function isOptionsOK() { return (options.spaceWidth + options.barWidth) * itemsCount <= region.width; }
                     var spaceWidth, barWidth;
                     if (isOptionsOK()) {
-                        //æŸ±è¶³å¤Ÿç»†äº†
+                        //Öù×ã¹»Ï¸ÁË
                         spaceWidth = 1;
                         barWidth = (region.width - spaceWidth * itemsCount) / itemsCount;
                         if (barWidth > 4) {
@@ -450,11 +366,11 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 this.low = low;
                 var ctx = this.ctx;
                 var me = this;
-                //timer.start('paintItems:ç§»åŠ¨å‡çº¿');
-                //ç”»ç§»åŠ¨å¹³å‡çº¿
+                //timer.start('paintItems:ÒÆ¶¯¾ùÏß');
+                //»­ÒÆ¶¯Æ½¾ùÏß
                 this.implement.paintMAs.call(this, filteredData, getY);
                 //timer.stop();
-                //timer.start('paintItems:ç”»æŸ±');
+                //timer.start('paintItems:»­Öù');
                 function getY(price) { return (me.high - price) * region.height / (me.high - me.low); }
                 function getCandleLineX(i) { var result = i * (options.spaceWidth + options.barWidth) + (options.spaceWidth + options.barWidth) * .5; if (result * 10 % 10 == 0) result += .5; return result; }
 
@@ -484,7 +400,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                             candleHeight = getY(ki.close) - candleY;
                         }
 
-                        //ç”»çº¿
+                        //»­Ïß
                         ctx.beginPath();
                         ctx.moveTo(lineX, topY);
                         ctx.lineTo(lineX, bottomY);
@@ -495,7 +411,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                         ctx.fillRect(candleX, candleY, options.barWidth, candleHeight);
                     } else {
                         ctx.strokeStyle = color;
-                        //ç”»çº¿
+                        //»­Ïß
                         ctx.beginPath();
                         ctx.moveTo(lineX, topY);
                         ctx.lineTo(lineX, bottomY);
@@ -503,13 +419,13 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                     }
 
                 };
-                //ç”»èœ¡çƒ›
+                //»­À¯Öò
                 filteredData.each(drawCandle);
                 //timer.stop();
-                //timer.start('paintItems:çºµè½´');
+                //timer.start('paintItems:×İÖá');
                 var yAxisOptions = options.yAxis;
                 yAxisOptions.region = yAxisOptions.region || { x: 0 - region.x, y: 0 - 3, height: region.height, width: region.x - 3 };
-                //ç”»yè½´
+                //»­yÖá
                 var yAxisImp = new yAxis(yAxisOptions);
                 var yPainter = new Painter(
                     this.canvas.id,
@@ -518,8 +434,8 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 );
                 yPainter.paint();
                 //timer.stop();
-                //timer.start('paintItems:æ¨ªè½´');
-                //ç”»Xè½´
+                //timer.start('paintItems:ºáÖá');
+                //»­XÖá
                 var xAxisOptions = options.xAxis;
                 xAxisOptions.region = { x: 0, y: region.height + 2, width: region.width, height: 20 };
                 var xAxisImp = new xAxis(xAxisOptions);
@@ -529,12 +445,11 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                     options.xAxis.scalerCount = filteredData.length;
                     stepLength = 1;
                 }
-                xScalers.push(convertDate(filteredData[0].quoteTime, false).substr(2));
+                xScalers.push(convertDate(filteredData[0].quoteTime, false));
                 for (var i = 1; i < options.xAxis.scalerCount; i++) {
                     var index = Math.ceil(i * stepLength);
                     if (index >= filteredData.length) index = filteredData.length - 1;
                     var quoteTime = convertDate(filteredData[index].quoteTime, false);
-                    quoteTime = quoteTime.substr(2);
                     xScalers.push(quoteTime);
                 }
                 var xPainter = new Painter(this.canvas.id, xAxisImp, xScalers);
@@ -542,10 +457,10 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                // timer.stop();
 
                 //timer.start('volume');
-                //ç”»é‡
+                //»­Á¿
                 this.implement.paintVolume.call(this, filteredData);
                 //timer.stop();
-                //ç”»ä»·æ ¼çº¿
+                //»­¼Û¸ñÏß                
                 //this.implement.paintPriceLine.call(this);
             },
             paintPriceLine: function () {
@@ -558,14 +473,14 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 ctx.translate(region.x, region.y);
 
                 ctx.clearRect(0 - region.x, 0, this.canvas.width, region.height);
-                //ç”»æ°´å¹³åº•çº¹çº¿
+                //»­Ë®Æ½µ×ÎÆÏß
                 var spaceHeight = region.height / (options.horizontalLineCount + 1);
                 for (var i = 1; i <= options.horizontalLineCount; i++) {
                     var y = spaceHeight * i;
                     if (y * 10 % 10 == 0) y += .5;
                     this.drawHLine(options.splitLineColor, 0, y, region.width, 1, options.lineStyle);
                 }
-                //ç”»å‚ç›´åº•çº¹çº¿
+                //»­´¹Ö±µ×ÎÆÏß
                 var spaceWidth = region.width / (options.verticalLineCount + 1);
                 for (var i = 1; i <= options.verticalLineCount; i++) {
                     var w = spaceWidth * i;
@@ -613,7 +528,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 ctx.globalAlpha = 1;
                 var yAxisOptions = options.yAxis;
                 yAxisOptions.region = yAxisOptions.region || { x: 0 - region.x, y: 0 - 3, height: region.height, width: region.x - 3 };
-                //ç”»yè½´
+                //»­yÖá
                 var yAxisImp = new yAxis(yAxisOptions);
                 var yPainter = new Painter(
                     this.canvas.id,
@@ -646,7 +561,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                     ctx.beginPath();
                     MA.each(function (val, arr, i) {
                         var x = i * (options.spaceWidth + options.barWidth) + (options.spaceWidth + options.barWidth) * .5;
-
+                        
                         if (!val) return;
                         var y = funcGetY(val);
                         if (y && i==0) {
@@ -661,21 +576,21 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
             paintVolume: function (filteredData) {
                 var ctx = this.ctx;
                 var options = this.klOptions;
-                //ç”»é‡çº¿
+                //»­Á¿Ïß
                 var volumeOptions = options.volume;
                 var volumeRegion = volumeOptions.region;
                 ctx.restore();
                 ctx.save();
                 ctx.translate(volumeRegion.x, volumeRegion.y);
                 ctx.globalAlpha = 1;
-                //ç”»æ°´å¹³åº•çº¹çº¿
+                //»­Ë®Æ½µ×ÎÆÏß
                 var spaceHeight = volumeRegion.height / (volumeOptions.horizontalLineCount + 1);
                 for (var i = 1; i <= volumeOptions.horizontalLineCount; i++) {
                     var y = spaceHeight * i;
                     if (y * 10 % 10 == 0) y += .5;
                     this.drawHLine(options.splitLineColor, 0, y, options.region.width, 1, options.lineStyle);
                 }
-                //ç”»å‚ç›´åº•çº¹çº¿
+                //»­´¹Ö±µ×ÎÆÏß
                 var spaceWidth = options.region.width / (options.verticalLineCount + 1);
                 for (var i = 1; i <= options.verticalLineCount; i++) {
                     var w = spaceWidth * i;
@@ -706,16 +621,16 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                     ctx.fill();
                 });
 
-                //ç”»yè½´
+                //»­yÖá
                 var volumeLevel;
                 var volumeUnit;
                 if (maxVolume < 10000 * 100) {
                     volumeLevel = 10000;
-                    volumeUnit = 'ä¸‡';
+                    volumeUnit = 'Íò';
                 }
                 else {
                     volumeLevel = 10000 * 100;
-                    volumeUnit = 'ç™¾ä¸‡';
+                    volumeUnit = '°ÙÍò';
                 }
 
                 var volumeScalers = [];
@@ -745,7 +660,7 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                     me.klOptions.volume.region.width =
                             me.klOptions.priceLine.region.width =
                             me.klOptions.region.width = chartWidth;
-                    //æ–¹å‘æ”¹å˜äº†ï¼Œè¦é‡ç”»controller
+                    //·½Ïò¸Ä±äÁË£¬ÒªÖØ»­controller
                     me.controller = null;
                     me.hasPaintPriceLine = false;
                     drawKL({ start: me.dataRanges.start, to: me.dataRanges.to });
@@ -753,18 +668,18 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 }
             }
         };
-
+        
         var painter;// = new Painter('canvasKL', kl, data);
         //var initialWidth = Math.min(screen.width,1024)-40;
-
-        function drawKL(ranges) {
+        
+        function drawKL(ranges) {         
             var initialWidth = window.innerWidth - 40;
             var kOptions = {
                 backgroundColor:'#fff',
                 riseColor: 'red',
                 fallColor: 'green',
                 normalColor: 'black',
-                //ä¸»å›¾åŒºåŸŸçš„è¾¹è·
+                //Ö÷Í¼ÇøÓòµÄ±ß¾à
                 chartMargin:{left:45.5,top:20.5,right:20.5},
                 region: { x: 45.5, y: 20.5, width: initialWidth - 45.5 - 20.5, height: 250 },
                 barWidth: 5, spaceWidth: 2, horizontalLineCount: 7, verticalLineCount: 7, lineStyle: 'solid', borderColor: 'gray', splitLineColor: '#eeeeee', lineWidth: 1,
@@ -816,10 +731,10 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                     bar: { width: 20, height: 35, borderColor: 'black', fillColor: 'lightgray' },
                     minBarDistance: 20
                 }
-
+               
             };
-
-            if(!painter){
+           
+            if(!painter){            
                 var canvas = $id('canvasKL');
                 if(canvas.width != initialWidth) canvas.width = initialWidth;
                 var kl = new kLine(kOptions);
@@ -832,11 +747,11 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
 
     </script>
 
-
+    
 </head>
 <body onload="drawKL()" style="padding:0;margin:2px">
     <canvas id="canvasKL" width="1002" height="460" style="z-index: 2; border: 1px solid #69c">
-        <p>hey,æ‚¨çš„æµè§ˆå™¨ä¸æ”¯æŒhtml5ï¼Œæ¢ä¸ªæµè§ˆå™¨å§ï¼Œæ¯”å¦‚google chromeï¼Œfirefox</p>
+        <p>hey,ÄúµÄä¯ÀÀÆ÷²»Ö§³Öhtml5£¬»»¸öä¯ÀÀÆ÷°É£¬±ÈÈçgoogle chrome£¬firefox</p>
     </canvas>
     <div id="debug"></div>
 
@@ -845,10 +760,10 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
     <style>
     pre{padding: 60px 0 0 30px;color: gray;font-size: .8em;line-height: 20px;}
     </style>
-    <p><a href="./index.html">è¿”å›åˆ—è¡¨é¡µ</a></p>
+    <p><a href="./index.html">·µ»ØÁĞ±íÒ³</a></p>
     <pre>
 Author:yukaizhao http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
-å‚ä¸é¡¹ç›®æˆ–æŠ€æœ¯äº¤æµï¼š<a href="mailto:yukaizhao@gmail.com">yukaizhao@gmail.com</a>
+²ÎÓëÏîÄ¿»ò¼¼Êõ½»Á÷£º<a href="mailto:yukaizhao@gmail.com">yukaizhao@gmail.com</a>
     </pre>
 </body>
 </html>
