@@ -33,6 +33,7 @@ clsMgr.setMouseEvents(function(evl){
 clsMgr.drawCrossLines();
 canvas.crossLines = clsMgr;
 */
+
 function crossLines(options) {
     this.updateOptions(options);
 }
@@ -75,6 +76,7 @@ crossLines.prototype = {
         this.drawCrossLines();
     },
     drawCrossLines: function () {
+		timer.start('start');
         var canvas = this.canvas;
         var canvasId = this.canvas.id;
         var horizontalDivId = canvasId + '_crossLines_H';
@@ -150,5 +152,6 @@ crossLines.prototype = {
                 addEvent(vLine, 'mousemove', this.vLineMouseEvt);
             }
         }
+		timer.stop();
     }
 };

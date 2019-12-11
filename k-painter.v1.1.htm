@@ -8,9 +8,9 @@
     <script src="libs/util.js" type="text/javascript" charset="UTF8"></script>
     <script src="libs/absPainter.js" type="text/javascript" charset="UTF8"></script><!--主要畫圖的-->
     <!--script src="libs/ajax.js" type="text/javascript" charset="UTF8"></script-->
-    <!--script src="libs/crossLines.js" type="text/javascript" charset="UTF8"></script-->
+    <script src="libs/crossLines.js" type="text/javascript" charset="UTF8"></script>
     <script src="libs/axis-x.js" type="text/javascript" charset="UTF8"></script><!--x軸-->
-    <!--script src="libs/tip.js" type="text/javascript" charset="UTF8"></script-->
+    <script src="libs/tip.js" type="text/javascript" charset="UTF8"></script>
     <!--script src="libs/linepainter.js" type="text/javascript" charset="UTF8"></script-->
     <!--script src="libs/volumePainter.js" type="text/javascript" charset="UTF8"></script-->
     <script src="libs/axis-y.js" type="text/javascript" charset="UTF8"></script><!--y軸 (與x軸會影響量圖及拉bar-->
@@ -210,9 +210,9 @@ blog:http://www.cnblogs.com/yukaizhao/ http://weibo.com/yukaizhao/
                 */
                 var fingerSize = {width:30,height:20};
                 function shouldDoControllerEvent(ev,evtType){
-                    if(evtType == undefined) return true;
+                    //if(evtType == undefined) return true;
                     if(typeof me.shouldController == 'undefined') me.shouldController = true;
-                    if(evtType == 'touchstart'){
+                    if(evtType == 'touchstart' || evtType == undefined){
                         var offset = getEventOffsetPosition(ev);
                         var showTip=false;
 
